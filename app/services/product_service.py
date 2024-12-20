@@ -14,5 +14,5 @@ def create_new_product(product: ProductSchema, db: Session):
     db.refresh(product_obj)
     return product_obj
     
-def get_products(db: Session, skip, limit):
+def get_products(db: Session):
     return db.query(ProductModel).all()
