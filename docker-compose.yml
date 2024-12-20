@@ -9,7 +9,15 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-
+  test:
+    build: 
+      context: .
+      dockerfile: Dockerfile-test
+    volumes:
+      - .:/app
+    stdin_open: true
+    depends_on:
+      - back-end
   db:
       image: postgres:15-alpine
       volumes:
