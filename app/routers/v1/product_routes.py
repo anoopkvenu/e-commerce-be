@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from schemas.product import Product
 from database import get_db
 
-from services.product_service import create_new_product
+from services.product_service import create_new_product, get_products
 
 
 router = APIRouter()
@@ -18,5 +18,6 @@ def create_product(product: Product, db: Session = Depends(get_db)):
 @router.get("/")
 
 def get_all_product(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    items = 'q'#serv.get_items(db, skip=skip, limit=limit)
+    items = get_products(db, skip=skip, limit=limit)
     return items
+
