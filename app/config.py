@@ -8,9 +8,9 @@ class Settings:
         "drivername": "postgresql",
         "username": os.getenv("DB_USER_NAME", "be_service"),
         "password": os.getenv("DB_PASSWORD", "qwerty@123"),
-        "host": os.getenv("DB_HOST", "localhost"),
+        "host": os.getenv("DB_HOST", "db"),
         "database": os.getenv("DB_NAME", "e_commerce_db"),
-        "port": os.getenv("DB_PORT", 5000)
+        "port": os.getenv("DB_PORT", 5432)
     }
 
 settings = Settings()

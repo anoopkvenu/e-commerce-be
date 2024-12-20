@@ -11,7 +11,7 @@ def create_new_order(cart_list, db: Session):
     product_obj = OrderModel(status =  Status.pending)
     product_obj = validate_create_order(cart_list, products, product_obj, db)
 
-    return products
+    return product_obj
 
 
 def fetch_products(product_list, db:Session):
@@ -47,6 +47,8 @@ def validate_create_order(cart_list, products, product_obj, db):
     db.commit()
 
     update_stock(new_inventory, db)
+    
+    return product_obj
 
 
 def create_order_obj(product, cart_item): 
